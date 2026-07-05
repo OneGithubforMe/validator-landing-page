@@ -63,19 +63,29 @@ Edit the "Recent verifications" section in `index.html` manually every few days 
 
 ## Deploy to GitHub Pages
 
-### Option A: From the repo root (recommended)
+### Step 1: Enable GitHub Pages (required, one-time)
 
-1. Push this repo to GitHub
-2. Go to **Settings → Pages**
-3. Under **Source**, select **Deploy from a branch**
-4. Choose `main` branch, `/ (root)` folder
-5. Save
+The deploy workflow will fail with `Get Pages site failed` until you do this:
 
-Your site will be live at `https://<username>.github.io/<repo>/` or at `redastic.com` once DNS is configured.
+1. Open your repo on GitHub → **Settings** → **Pages**
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not "Deploy from a branch")
+3. Save — you don't need to pick a workflow from the list yet
 
-### Option B: GitHub Actions (automatic deploy on push)
+### Step 2: Push and deploy
 
-The included workflow deploys on every push to `main`. Enable it under **Settings → Pages → Source → GitHub Actions**.
+1. Push this repo to GitHub (`main` branch)
+2. Go to **Actions** → **Deploy to GitHub Pages** → confirm the run succeeds
+3. Your site will be live at `https://<username>.github.io/<repo>/`
+
+> **Still failing?** Re-run the workflow after Step 1. GitHub Actions cannot always auto-enable Pages — the manual setting above is required for most repos.
+
+### Alternative: Deploy from branch (no Actions)
+
+If you prefer to skip GitHub Actions entirely:
+
+1. **Settings** → **Pages** → **Source** → **Deploy from a branch**
+2. Branch: `main`, folder: `/ (root)`
+3. Every push to `main` deploys automatically — no workflow needed
 
 ## Connect redastic.com (Cloudflare DNS)
 
