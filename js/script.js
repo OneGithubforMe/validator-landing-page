@@ -19,6 +19,13 @@ function applySiteConfig() {
   document.querySelectorAll('[data-config="cta-text"]').forEach((el) => {
     el.textContent = SITE_CONFIG.ctaText;
   });
+
+  document.querySelectorAll('[data-config="privacy-email"]').forEach((el) => {
+    el.textContent = SITE_CONFIG.privacyEmail;
+    if (el.tagName === 'A') {
+      el.href = `mailto:${SITE_CONFIG.privacyEmail}`;
+    }
+  });
 }
 
 applySiteConfig();
