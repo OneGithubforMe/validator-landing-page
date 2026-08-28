@@ -1,24 +1,22 @@
 /**
- * Site configuration — edit values here, not in index.html.
+ * Site configuration — edit values here, not in every HTML file.
  */
 const SITE_CONFIG = {
-  siteName: 'Redastic',
+  siteName: 'Visualizer',
+  companyName: 'Redastic',
   siteUrl: 'https://redastic.com',
-  tagline: 'Know what to trust online.',
+  tagline: 'See yourself in your future.',
 
-  // Country code + number, no + or spaces (e.g. 919876543210)
-  whatsappNumber: '918905483882',
-  whatsappMessage: 'Get Started',
-
-  // Full Google Form URL (Send → Link)
-  googleFormUrl:
-    'https://docs.google.com/forms/d/e/1FAIpQLScZ9v5TUGUv-rAT2rGrtsrJqVWyJsB19s8UZQV1_DxHQWFejQ/viewform',
+  playStoreUrl: 'https://play.google.com/store/apps/details?id=com.visualizer.app',
+  applicationId: 'com.visualizer.app',
 
   copyrightYear: 2026,
 
-  // Privacy / data deletion requests
-  privacyEmail: 'mailtoghanshyam47@gmail.com',
+  // Public contact for privacy questions and email account-deletion requests.
+  privacyEmail: 'redastics@gmail.com',
+  deletionEmailSubject: 'Visualizer account deletion request',
+  deletionEmailBody:
+    'Google Sign-In email:\n\nPlease permanently delete my Visualizer account and associated data.',
 
-  // CTA button label (all WhatsApp buttons)
-  ctaText: 'Verify Your First Claim — Free',
+  ctaText: 'Get it on Google Play',
 };

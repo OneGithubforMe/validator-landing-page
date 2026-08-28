@@ -1,15 +1,13 @@
-function getWhatsAppUrl() {
-  const text = encodeURIComponent(SITE_CONFIG.whatsappMessage);
-  return `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${text}`;
+function deletionMailto() {
+  const email = SITE_CONFIG.privacyEmail;
+  const subject = encodeURIComponent(SITE_CONFIG.deletionEmailSubject);
+  const body = encodeURIComponent(SITE_CONFIG.deletionEmailBody);
+  return `mailto:${email}?subject=${subject}&body=${body}`;
 }
 
 function applySiteConfig() {
-  document.querySelectorAll('[data-link="whatsapp"]').forEach((link) => {
-    link.href = getWhatsAppUrl();
-  });
-
-  document.querySelectorAll('[data-link="waitlist"]').forEach((link) => {
-    link.href = SITE_CONFIG.googleFormUrl;
+  document.querySelectorAll('[data-link="play-store"]').forEach((link) => {
+    link.href = SITE_CONFIG.playStoreUrl;
   });
 
   document.querySelectorAll('[data-config="copyright-year"]').forEach((el) => {
@@ -26,29 +24,18 @@ function applySiteConfig() {
       el.href = `mailto:${SITE_CONFIG.privacyEmail}`;
     }
   });
+
+  document.querySelectorAll('[data-link="deletion-email"]').forEach((link) => {
+    link.href = deletionMailto();
+  });
 }
 
-applySiteConfig();
-
-// Animate demo chat on scroll
-const resultBubble = document.getElementById('result-bubble');
-
-if (resultBubble) {
-  const chatObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          chatObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  chatObserver.observe(resultBubble);
+try {
+  applySiteConfig();
+} catch (_error) {
+  // Leave the HTML hrefs and visible copy in place if config is missing.
 }
 
-// Scroll reveal animations
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -62,12 +49,3 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-
-// Track WhatsApp CTA clicks
-document.querySelectorAll('[data-link="whatsapp"]').forEach((link) => {
-  link.addEventListener('click', () => {
-    if (typeof window.cfBeacon !== 'undefined') {
-      window.cfBeacon('whatsapp_cta_click');
-    }
-  });
-});
