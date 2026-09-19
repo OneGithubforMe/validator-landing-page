@@ -12,7 +12,7 @@ Static marketing and legal site for [Visualizer](https://play.google.com/store/a
 | `/privacy/` | Privacy policy (Play Console) |
 | `/data-deletion/` | Account deletion instructions (Play Console) |
 | `/delete-account/` | Alias → `/data-deletion/` |
-| `/terms/` | Terms of Service |
+| `/terms/` | Terms of Use |
 
 Edit **`js/config.js`** for Play Store URL, deletion email, and CTA label.
 
@@ -20,6 +20,7 @@ Edit **`js/config.js`** for Play Store URL, deletion email, and CTA label.
 
 ```
 https://redastic.com/privacy/
+https://redastic.com/terms/
 https://redastic.com/data-deletion/
 ```
 
