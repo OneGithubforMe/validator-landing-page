@@ -25,7 +25,7 @@ Plain HTML + one CSS file + vanilla JS. Google Fonts (Inter). GitHub Actions →
   - in-app copies `visualizer-android-app/app/src/main/assets/privacy.html` and `terms.html` (README: update these after changing privacy/deletion copy),
   - `visualizer-android-app/docs/play-data-safety.md` (Play Data safety answers).
   When editing policy text, say whether those were updated or still need to be.
-- Account deletion: users delete in-app (Settings → Delete account) or by emailing the address in `SITE_CONFIG.privacyEmail`.
+- Account deletion: users delete in-app (Profile → Delete account) or by emailing the address in `SITE_CONFIG.privacyEmail`.
 
 ## Pitfalls
 - Every file in the repo is published. Don't add drafts, notes, or private files.
