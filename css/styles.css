@@ -11,8 +11,8 @@
   --text-muted: #6e6e73;
   --text-light: #98989f;
   --border: #e8e8ed;
-  --accent: #b5530e;
-  --accent-dark: #8f3f08;
+  --accent: #a04a0c;
+  --accent-dark: #7d3a08;
   --blue-hour: #5e5ce6;
   --horizon-rose: #f27a7d;
   --first-light: #ffb35c;
@@ -120,12 +120,12 @@ body {
   background: var(--accent);
   color: #fff;
   padding: 12px 24px;
-  box-shadow: 0 2px 10px rgba(181, 83, 14, .25);
+  box-shadow: 0 2px 10px rgba(160, 74, 12, .25);
 }
 
 .btn-primary:hover {
   background: var(--accent-dark);
-  box-shadow: 0 8px 24px rgba(181, 83, 14, .3);
+  box-shadow: 0 8px 24px rgba(160, 74, 12, .3);
 }
 
 .btn-lg { padding: 16px 32px; font-size: 1.0625rem; }
