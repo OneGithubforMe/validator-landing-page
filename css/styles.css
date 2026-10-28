@@ -2,23 +2,26 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #f8f7ff;
-  --bg-alt: #efeaf8;
+  /* Dawn palette, shared with the app (ui/theme/Color.kt): neutral canvas,
+     one sunrise accent, and a blue hour → horizon rose → first light glow. */
+  --bg: #f5f5f7;
+  --bg-alt: #ebebef;
   --surface: #ffffff;
-  --text: #14121c;
-  --text-muted: #6b6680;
-  --text-light: #a5a1b5;
-  --border: #e4dfec;
-  --accent: #8b5cf6;
-  --accent-dark: #7c3aed;
-  --coral: #ff7a6b;
-  --pink: #ec6bce;
-  --midnight: #0b0b12;
+  --text: #1d1d1f;
+  --text-muted: #6e6e73;
+  --text-light: #98989f;
+  --border: #e8e8ed;
+  --accent: #b5530e;
+  --accent-dark: #8f3f08;
+  --blue-hour: #5e5ce6;
+  --horizon-rose: #f27a7d;
+  --first-light: #ffb35c;
+  --midnight: #000000;
   --radius: 12px;
   --radius-lg: 20px;
-  --shadow: 0 1px 3px rgba(11, 11, 18, .06), 0 4px 16px rgba(139, 92, 246, .08);
-  --shadow-lg: 0 12px 40px rgba(139, 92, 246, .16);
-  --glow: linear-gradient(90deg, #8b5cf6, #ec6bce, #ff7a6b);
+  --shadow: 0 1px 3px rgba(0, 0, 0, .05), 0 4px 16px rgba(0, 0, 0, .05);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, .10);
+  --glow: linear-gradient(90deg, #5e5ce6, #f27a7d, #ffb35c);
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --max-width: 1100px;
   --nav-height: 64px;
@@ -47,7 +50,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(248, 247, 255, .9);
+  background: rgba(245, 245, 247, .85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -117,12 +120,12 @@ body {
   background: var(--accent);
   color: #fff;
   padding: 12px 24px;
-  box-shadow: 0 2px 10px rgba(139, 92, 246, .35);
+  box-shadow: 0 2px 10px rgba(181, 83, 14, .25);
 }
 
 .btn-primary:hover {
   background: var(--accent-dark);
-  box-shadow: 0 8px 24px rgba(139, 92, 246, .4);
+  box-shadow: 0 8px 24px rgba(181, 83, 14, .3);
 }
 
 .btn-lg { padding: 16px 32px; font-size: 1.0625rem; }
@@ -244,7 +247,7 @@ body {
   border-radius: 36px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  border: 3px solid #2a2838;
+  border: 3px solid #2c2c2e;
   position: relative;
 }
 
@@ -256,7 +259,7 @@ body {
   transform: translateX(-50%);
   width: 88px;
   height: 22px;
-  background: #111018;
+  background: #000000;
   border-radius: 12px;
   z-index: 2;
 }
@@ -274,8 +277,8 @@ body {
   position: relative;
   height: 420px;
   background:
-    radial-gradient(ellipse at 70% 20%, rgba(255, 122, 107, .45), transparent 50%),
-    linear-gradient(180deg, #1a1038 0%, #4c1d95 38%, #ff7a6b 78%, #f5d0a9 100%);
+    radial-gradient(ellipse at 70% 20%, rgba(255, 179, 92, .45), transparent 50%),
+    linear-gradient(180deg, #12142b 0%, #4a3a78 38%, #f27a7d 78%, #ffe2b8 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -403,15 +406,15 @@ body {
 .formula-photo {
   background:
     radial-gradient(circle at 50% 38%, #f5d0c5 0 28%, transparent 29%),
-    linear-gradient(180deg, #c4b5fd 0%, #8b5cf6 100%);
+    linear-gradient(180deg, #b8b7f5 0%, #5e5ce6 100%);
 }
 
 .formula-goal {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ede9fe;
-  color: #4c1d95;
+  background: #ffebd3;
+  color: #5c2a06;
   font-size: .8rem;
   font-weight: 700;
   padding: 12px;
@@ -420,7 +423,7 @@ body {
 
 .formula-result-visual {
   background:
-    linear-gradient(180deg, #1a1038 0%, #8b5cf6 50%, #ff7a6b 100%);
+    linear-gradient(180deg, #12142b 0%, #5e5ce6 45%, #f27a7d 75%, #ffb35c 100%);
 }
 
 .formula-card h3 {
@@ -431,7 +434,7 @@ body {
   color: var(--text-light);
 }
 
-.formula-card.is-result h3 { color: #c4b5fd; }
+.formula-card.is-result h3 { color: #ffb35c; }
 
 .formula-op {
   font-size: 1.5rem;
@@ -460,9 +463,9 @@ body {
   height: 160px;
 }
 
-.day-1 { background: linear-gradient(180deg, #1e1b4b 0%, #6d28d9 55%, #fb7185 100%); }
-.day-2 { background: linear-gradient(180deg, #312e81 0%, #7c3aed 50%, #fb923c 100%); }
-.day-7 { background: linear-gradient(180deg, #4c1d95 0%, #ec4899 48%, #fde68a 100%); }
+.day-1 { background: linear-gradient(180deg, #12142b 0%, #4a3a78 55%, #f27a7d 100%); }
+.day-2 { background: linear-gradient(180deg, #1b1f4a 0%, #5e5ce6 50%, #ffb35c 100%); }
+.day-7 { background: linear-gradient(180deg, #4a3a78 0%, #f27a7d 48%, #ffe2b8 100%); }
 
 .day-card h3 {
   padding: 14px 16px 4px;
@@ -642,6 +645,18 @@ body {
 .cta-section .cta-actions {
   display: flex;
   justify-content: center;
+}
+
+/* On black, the app's dark-theme accent: amber with dark text. */
+.cta-section .btn-primary {
+  background: var(--first-light);
+  color: var(--text);
+  box-shadow: 0 2px 16px rgba(255, 179, 92, .25);
+}
+
+.cta-section .btn-primary:hover {
+  background: #ffc27a;
+  box-shadow: 0 8px 28px rgba(255, 179, 92, .35);
 }
 
 /* ── Footer ── */
