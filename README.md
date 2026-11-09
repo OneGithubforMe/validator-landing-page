@@ -13,6 +13,7 @@ Static marketing and legal site for [Visualizer](https://play.google.com/store/a
 | `/data-deletion/` | Account deletion instructions (Play Console) |
 | `/delete-account/` | Alias → `/data-deletion/` |
 | `/terms/` | Terms of Use |
+| `/background-help/` | Phone-by-phone background setup, linked from the "auto wallpapers stopped" email (`validator` `VISUALIZER_AUTO_ALERT_HELP_URL`) |
 
 Edit **`js/config.js`** for Play Store URL, deletion email, and CTA label.
 
