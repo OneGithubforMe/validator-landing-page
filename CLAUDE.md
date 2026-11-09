@@ -20,12 +20,13 @@ Plain HTML + one CSS file + vanilla JS. Google Fonts (Inter). GitHub Actions →
 
 ## Critical rules
 - Play Console points at `https://redastic.com/privacy/`, `/terms/`, `/data-deletion/`. Don't rename or move these paths; keep trailing-slash directory URLs.
+- `/background-help/` is linked from the backend's "auto wallpapers stopped" user email (`validator` `VISUALIZER_AUTO_ALERT_HELP_URL`). Don't move it; keep its phone steps in line with `visualizer-android-app/.../device/AutoRunReadinessCopy.kt`.
 - The API (`validator` repo, `app/main.py`) 301-redirects `api.redastic.com/privacy`, `/terms`, `/delete-account` to these pages. Changing paths here breaks those redirects.
 - Legal copy must stay consistent with:
   - in-app copies `visualizer-android-app/app/src/main/assets/privacy.html` and `terms.html` (README: update these after changing privacy/deletion copy),
   - `visualizer-android-app/docs/play-data-safety.md` (Play Data safety answers).
   When editing policy text, say whether those were updated or still need to be.
-- Account deletion: users delete in-app (Settings → Delete account) or by emailing the address in `SITE_CONFIG.privacyEmail`.
+- Account deletion: users delete in-app (Profile → Delete account) or by emailing the address in `SITE_CONFIG.privacyEmail`.
 
 ## Pitfalls
 - Every file in the repo is published. Don't add drafts, notes, or private files.
